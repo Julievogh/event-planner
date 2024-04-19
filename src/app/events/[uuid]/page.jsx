@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 export default async function eventPage({ params }) {
   const uuid = params.uuid;
   console.log(uuid);
@@ -8,6 +10,7 @@ export default async function eventPage({ params }) {
 
   let response = await fetch("https://ncskiybovrupsrvhtkwk.supabase.co/rest/v1/events?id=eq." + uuid, {
     headers: headersList,
+    cache: "no-store",
   });
 
   let data = await response.json();
