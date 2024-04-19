@@ -30,7 +30,7 @@ export default async function AddEventPage() {
     <form action={submit}>
       <div className="formcontrol">
         <label htmlFor="form_name">Titel</label>
-        <input required id="form_namne" type="text" name="name" />
+        <input required id="form_name" type="text" name="name" />
       </div>
       <div className="formcontrol">
         <label htmlFor="form_when">Hvornår</label>
