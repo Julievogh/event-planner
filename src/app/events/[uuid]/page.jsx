@@ -1,6 +1,6 @@
 export default async function eventPage({ params }) {
   const uuid = params.uuid;
-
+  console.log(uuid);
   let headersList = {
     Accept: "application/json",
     apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
@@ -12,7 +12,7 @@ export default async function eventPage({ params }) {
 
   let data = await response.json();
   const eventInfo = data[0];
-
+  console.log(uuid);
   return (
     <article className="align-content: center">
       <h1>{eventInfo.name}</h1>
