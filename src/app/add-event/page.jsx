@@ -8,21 +8,18 @@ export default async function AddEventPage() {
       Prefer: "return=representation",
       "Content-Type": "application/json",
     };
-
+    console.log(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
     let bodyContent = JSON.stringify({
       name: formData.get("name"),
       when: formData.get("when"),
       description: formData.get("description"),
     });
-
-    let response = await fetch("https://ncskiybovrupsrvhtkwk.supabase.co/rest/v1/events", {
+    let response = await fetch("https://uwrwptibotlxlvcdeicv.supabase.co/rest/v1/events", {
       method: "POST",
       body: bodyContent,
       headers: headersList,
     });
-
     let data = await response.json();
-    console.log(data);
     const id = data[0].id;
     redirect("/events/" + id);
   }
@@ -30,15 +27,15 @@ export default async function AddEventPage() {
     <form action={submit}>
       <div className="formcontrol">
         <label htmlFor="form_name">Titel</label>
-        <input required id="form_name" type="text" name="name" />
+        <input id="form_namne" type="text" name="name" />
       </div>
       <div className="formcontrol">
         <label htmlFor="form_when">Hvornår</label>
-        <input required id="form_when" type="date" name="when" />
+        <input id="form_when" type="date" name="when" />
       </div>
       <div className="formcontrol">
         <label htmlFor="form_description">Andet du vil sige?</label>
-        <input required id="form_description" type="text" name="description" />
+        <input id="form_description" type="text" name="description" />
       </div>
       <button>Gem</button>
     </form>
